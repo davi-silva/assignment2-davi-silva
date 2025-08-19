@@ -12,8 +12,10 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <DataProvider>
-        <nav style={{ padding: 16, borderBottom: "1px solid #ddd" }}>
-          <Link to="/">Items</Link> | <Link to="/new">New Item</Link>
+        <nav>
+          <Link to="/">Items</Link>
+          <span>|</span>
+          <Link to="/new">New Item</Link>
         </nav>
         <Routes>
           <Route path="/" element={<Items />} />

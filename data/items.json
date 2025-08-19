@@ -1149,7 +1149,7 @@
     "id": 192,
     "name": "Pen Holder Model 192",
     "category": "Office Supplies",
-    "price": 742.0
+    "price": 742
   },
   {
     "id": 193,
@@ -1305,7 +1305,7 @@
     "id": 218,
     "name": "Blender Model 218",
     "category": "Appliances",
-    "price": 1731.0
+    "price": 1731
   },
   {
     "id": 219,
@@ -1797,7 +1797,7 @@
     "id": 300,
     "name": "Ultra-Wide Monitor Model 300",
     "category": "Electronics",
-    "price": 2542.0
+    "price": 2542
   },
   {
     "id": 301,
@@ -2571,7 +2571,7 @@
     "id": 429,
     "name": "Smartphone Model 429",
     "category": "Electronics",
-    "price": 330.0
+    "price": 330
   },
   {
     "id": 430,
@@ -2998,5 +2998,17 @@
     "name": "Standing Desk Model 500",
     "category": "Furniture",
     "price": 1987.28
+  },
+  {
+    "name": "Test",
+    "category": "Some Category",
+    "price": 359,
+    "id": 1755608920694
+  },
+  {
+    "name": "Hello world",
+    "category": "World",
+    "price": 32,
+    "id": 1755608970877
   }
 ]

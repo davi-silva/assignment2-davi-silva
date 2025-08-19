@@ -11,6 +11,7 @@ async function readData() {
 
 const getPaginatedItems = async (req, res, next) => {
   try {
+    console.log("Fetching paginated items");
     const data = await readData();
     const { limit = 10, q, page = 1 } = req.query;
     let results = data;

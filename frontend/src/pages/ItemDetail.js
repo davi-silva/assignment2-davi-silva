@@ -10,7 +10,7 @@ function ItemDetail() {
   if (!item) return <p>Loading...</p>;
 
   return (
-    <div style={{ padding: 16 }}>
+    <div className="item-detail">
       <h2>{item.name}</h2>
       <p>
         <strong>Category:</strong> {item.category}

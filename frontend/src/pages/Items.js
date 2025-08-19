@@ -10,7 +10,7 @@ const ITEM_SIZE = 35;
 const Row = ({ index, style, data }) => {
   const item = data[index];
   return (
-    <div style={style}>
+    <div className="item-list-row" style={style}>
       <Link to={"/items/" + item.id}>{item.name}</Link>
     </div>
   );
@@ -39,6 +39,7 @@ function Items() {
   return (
     <div>
       <input
+        className="search-input"
         type="search"
         value={q}
         onChange={(e) => setQ(e.target.value)}
@@ -46,17 +47,18 @@ function Items() {
       />
       {loading && <p>Loading...</p>}
       {!loading && (
-        <FixedSizeList
-          height={500}
-          itemCount={items.length}
-          itemSize={ITEM_SIZE}
-          width={300}
-          itemData={items}
-        >
-          {Row}
-        </FixedSizeList>
+        <div className="item-list-container">
+          <FixedSizeList
+            height={500}
+            itemCount={items.length}
+            itemSize={ITEM_SIZE}
+            itemData={items}
+          >
+            {Row}
+          </FixedSizeList>
+        </div>
       )}
-      <div>
+      <div className="pagination-controls">
         <button onClick={() => setPage((p) => p - 1)} disabled={page <= 1}>
           Previous
         </button>
