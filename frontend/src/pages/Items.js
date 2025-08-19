@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { FixedSizeList } from "react-window";
 import { Link } from "react-router-dom";
