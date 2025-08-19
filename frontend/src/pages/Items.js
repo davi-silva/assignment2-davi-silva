@@ -45,7 +45,7 @@ function Items() {
         onChange={(e) => setQ(e.target.value)}
         placeholder="Search..."
       />
-      {loading ? (
+      {loading || items.length === 0 ? (
         <div className="item-list-container">
           {Array.from({ length: 10 }).map((_, index) => (
             <div
