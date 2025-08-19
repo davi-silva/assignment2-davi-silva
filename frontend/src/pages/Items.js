@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useData } from "../state/DataContext";
 
 const LIMIT = 20;
-const ITEM_SIZE = 35;
+const ITEM_SIZE = 40;
 
 const Row = ({ index, style, data }) => {
   const item = data[index];
@@ -45,8 +45,30 @@ function Items() {
         onChange={(e) => setQ(e.target.value)}
         placeholder="Search..."
       />
-      {loading && <p>Loading...</p>}
-      {!loading && (
+      {loading ? (
+        <div className="item-list-container">
+          {Array.from({ length: 10 }).map((_, index) => (
+            <div
+              key={index}
+              className="item-list-row skeleton-loader"
+              style={{
+                height: ITEM_SIZE,
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <div
+                style={{
+                  width: "80%",
+                  height: "1rem",
+                  backgroundColor: "#e0e0e0",
+                  borderRadius: "4px",
+                }}
+              ></div>
+            </div>
+          ))}
+        </div>
+      ) : (
         <div className="item-list-container">
           <FixedSizeList
             height={500}

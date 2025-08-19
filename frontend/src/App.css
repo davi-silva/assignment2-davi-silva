@@ -120,7 +120,9 @@ button:disabled {
 }
 
 .item-list-row {
-  padding: 0.625rem;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
   border-bottom: 0.0625rem solid #eee;
 }
 
@@ -180,4 +182,22 @@ button:disabled {
 
 .item-detail strong {
   color: #555;
+}
+
+/* Skeleton Loader */
+.skeleton-loader {
+  background-color: #f0f0f0;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: #f0f0f0;
+  }
+  50% {
+    background-color: #e0e0e0;
+  }
+  100% {
+    background-color: #f0f0f0;
+  }
 }

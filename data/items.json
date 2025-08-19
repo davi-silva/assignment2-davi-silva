@@ -2998,17 +2998,5 @@
     "name": "Standing Desk Model 500",
     "category": "Furniture",
     "price": 1987.28
-  },
-  {
-    "name": "Test",
-    "category": "Some Category",
-    "price": 359,
-    "id": 1755608920694
-  },
-  {
-    "name": "Hello world",
-    "category": "World",
-    "price": 32,
-    "id": 1755608970877
   }
 ]
