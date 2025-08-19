@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import { FixedSizeList } from "react-window";
 import { Link } from "react-router-dom";
@@ -6,6 +6,7 @@ import { useData } from "../state/DataContext";
 
 const LIMIT = 20;
 const ITEM_SIZE = 40;
+const DEBOUNCE_DELAY = 500;
 
 const Row = ({ index, style, data }) => {
   const item = data[index];
@@ -20,19 +21,28 @@ function Items() {
   const { items, total, fetchItems, loading } = useData();
   const [q, setQ] = useState("");
   const [page, setPage] = useState(1);
+  const timeoutRef = useRef(null);
 
   useEffect(() => {
-    const controller = new AbortController();
-    fetchItems({ signal: controller.signal, q, page, limit: LIMIT }).catch(
-      (err) => {
-        if (err.name !== "AbortError") {
-          console.error(err);
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+
+    timeoutRef.current = setTimeout(() => {
+      const controller = new AbortController();
+      fetchItems({ signal: controller.signal, q, page, limit: LIMIT }).catch(
+        (err) => {
+          if (err.name !== "AbortError") {
+            console.error(err);
+          }
         }
-      }
-    );
+      );
+    }, DEBOUNCE_DELAY);
 
     return () => {
-      controller.abort();
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
     };
   }, [fetchItems, q, page]);
 
@@ -42,7 +52,10 @@ function Items() {
         className="search-input"
         type="search"
         value={q}
-        onChange={(e) => setQ(e.target.value)}
+        onChange={(e) => {
+          setQ(e.target.value);
+          setPage(1); // Reset page to 1 on search
+        }}
         placeholder="Search..."
       />
       {loading || items.length === 0 ? (

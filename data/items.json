@@ -2998,5 +2998,11 @@
     "name": "Standing Desk Model 500",
     "category": "Furniture",
     "price": 1987.28
+  },
+  {
+    "name": "Laptop Test",
+    "category": "Device",
+    "price": 299,
+    "id": 1755610500625
   }
 ]
